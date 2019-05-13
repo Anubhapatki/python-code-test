@@ -57,3 +57,38 @@ require.
 * A seller can deactivate and reactivate their listing
 
 After you are done, create a release branch in your repo and send us the link.
+
+
+## Implementation
+
+I have used Django Rest Framework to create the API for star ships. A small number of TDD 
+test cases have been added to show the behaviour of the API.
+
+The URLs available are as follows:
+
+* Browse all the starships available 
+    ```
+    http://0.0.0.0:8008/api/starships/ 
+    ```
+
+* Browse all the starships available for a specific starship_class
+    ```
+    http://0.0.0.0:8008/api/starships/<starship_class>
+    ```
+
+* Create a Listing, post api
+    ```
+    http://0.0.0.0:8008/api/listing
+    ```
+
+* Order the Listing by price or creation time
+    ```
+    http://0.0.0.0:8008/api/listing/?ordering=price
+    http://0.0.0.0:8008/api/listing/?ordering=-price
+    ```
+    ```
+    http://0.0.0.0:8008/api/listing/?ordering=creation_time
+    http://0.0.0.0:8008/api/listing/?ordering=-creation_time
+     ```
+Due to time constraints I have not applied any caching to the API, a
+also test cases needs to be improved.

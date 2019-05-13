@@ -31,9 +31,8 @@ class StarshipListing(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         q = serializer.save()
 
-
-class StarshipListingListView(generics.ListAPIView):
-    queryset = Listing.objects.all()
+class UpdateStarshipListing(generics.UpdateAPIView):
     serializer_class = ListingSerializer
-    filter_backends = (filters.OrderingFilter,)
-    ordering_fields = ('price', 'creation_time')
+    queryset = Listing.objects.all()
+    lookup_field = 'id'
+
