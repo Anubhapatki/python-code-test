@@ -21,6 +21,12 @@ class ShipTraderAPI(unittest.TestCase):
         resp = requests.post('http://0.0.0.0:8008/api/listing/',data=json.dumps(data), headers=headers)
         print(resp.status_code, resp.text)
 
+    def test_lising_api(self):
+        resp = requests.get('http://0.0.0.0:8008/api/starships/1')
+        print (resp.status_code)
+        print (json.loads(resp.text))
+        self.assertEqual(resp.status_code, 200)
+
 
 
     if __name__ == '__main__':

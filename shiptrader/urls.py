@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from .views import StarshipAPIListView, StarshipClassListView, StarshipListing, UpdateStarshipListing
+from .views import StarshipAPIListView, StarshipClassListView,  StarshipListingDetail,StarshipListing
 
 urlpatterns = [
-    url("starships/", StarshipAPIListView.as_view(), name="sharship_list"),
-    url("starships/<str:starship_class>", StarshipClassListView.as_view(), name="sharship_list"),
-    url("listing/", StarshipListing.as_view(), name="sharship_listing"),
-    url("listing/(?P<id>\d+)$", UpdateStarshipListing.as_view())
+    url(r'^starships/', StarshipAPIListView.as_view(), name="sharship_list"),
+    url(r'^starships_per_class/(?P<starship_class>[\w]+)$', StarshipClassListView.as_view()),
+    url(r'^listings/', StarshipListing.as_view(), name="sharship_listing"),
+    url(r'^listing/(?P<id>\d+)$', StarshipListingDetail.as_view())
 
 ]
